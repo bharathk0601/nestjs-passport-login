@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  service-authorizer:
+    container_name: authorizer
+    image: authorizer:latest
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - "4000:3000"
+    env_file:
+      - .env/jwt.env
+    volumes:
+      - ./authorizer:/home/nest_app/authorizer
+    command: npm run start:dev
