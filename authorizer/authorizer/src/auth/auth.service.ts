@@ -13,7 +13,7 @@ export class AuthService {
 
     async login(loginRequest: any) {
         const user = this.users.find(item => item.email === loginRequest.email);
-        if(user?.password !== loginRequest.password) {
+        if (user?.password !== loginRequest.password) {
             throw new BadRequestException("Invalid Creds.");
         }
 
