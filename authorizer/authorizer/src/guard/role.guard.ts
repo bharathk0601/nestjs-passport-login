@@ -27,7 +27,7 @@ export class RoleGuard implements CanActivate {
       if(!isRoleExists) throw new ForbiddenException({ message: "Not Allowed."});;
     }
 
-    if(requiredPermission) {
+    if (requiredPermission) {
       const isPermissionExists = requiredPermission.some((permission) => user.permissions?.includes(permission));
       if(!isPermissionExists) throw new ForbiddenException({ message: "Insuffiecient Permission."});
     }
