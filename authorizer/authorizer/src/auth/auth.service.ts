@@ -18,7 +18,6 @@ export class AuthService {
         }
 
         const token = await this.jwtService.signAsync({ ...user, password: undefined }, jwtOptions);
-        this.jwtService.verifyAsync
         return { token };
     }
 }
